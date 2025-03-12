@@ -110,6 +110,26 @@ Open a terminal (Menu: `Terminal` | `New Terminal`) then try:
 
 You are ready!
 
+# How does OpenServerless work?
 
+## Deploy an action
 
+Single-file action:
+```shell
+ops ide deploy chat/simple.py
+```
 
+Folder action (this will create an archive and then deploy it):
+```shell
+ops ide deploy chat
+```
+
+## Env vars
+
+You can make the action access env vars (make them propagate to the action when deployint it) by using annotations like the one below:
+```
+#--web true
+#--param OLLAMA_HOST $OLLAMA_HOST
+```
+
+When dealing with folder actions you must place them in the `__main__.py` file.
